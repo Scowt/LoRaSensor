@@ -1,6 +1,4 @@
 # LoRaSensor
-Me learning some more about LoRa
-
 
 Rak4270 module incorporates an STM32L071KB. The object of this project is to utilise that stm32 microcontroller to directly interface with the onboard Semtech LoRa transceiver.
 
