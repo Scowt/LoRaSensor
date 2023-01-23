@@ -1,0 +1,5 @@
+# ninja log v5
+1	12	0	clean	8b50cde204f52449
+1	13	0	clean	8b50cde204f52449
+2	860	6961832954777158	CMakeFiles/LoRaSensorCode.dir/Core/Src/main.c.obj	5251ca4c74aa0085
+862	1217	6961832957061026	LoRaSensorCode.elf	da4c03efba4858ba

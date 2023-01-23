@@ -27,11 +27,15 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32l0xx_hal.h"
+
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <stdbool.h>
+#include <stdint.h>
+#include "sx126x.h"
+#define STM32L071xx
+#include "stm32l0xx_hal.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -57,6 +61,8 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define STM32L071xx
+
 #define BUSY_Pin GPIO_PIN_0
 #define BUSY_GPIO_Port GPIOB
 #define DIO1_Pin GPIO_PIN_1
@@ -65,6 +71,7 @@ void Error_Handler(void);
 #define ANT_SW_GPIO_Port GPIOA
 #define DIO2_Pin GPIO_PIN_5
 #define DIO2_GPIO_Port GPIOB
+
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

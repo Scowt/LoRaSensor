@@ -21,7 +21,16 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+Application/User/Core \
+Application/User/Startup \
+CMakeFiles/3.25.1/CompilerIdC \
+CMakeFiles/3.25.1/CompilerIdC/Debug \
+CMakeFiles/3.25.1/CompilerIdCXX/Debug \
 Core/Src \
+Core/Src/sx126x_driver/src \
 Core/Startup \
+Drivers/CMSIS \
 Drivers/STM32L0xx_HAL_Driver/Src \
+Drivers/STM32L0xx_HAL_Driver \
+. \
 
