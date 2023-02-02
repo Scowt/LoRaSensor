@@ -104,15 +104,65 @@ int main(void)
    {
 	   RadioBusy = HAL_GPIO_ReadPin(BUSY_GPIO_Port, BUSY_Pin);
    }
-   uint8_t cfg=0;
-   sx126x_set_standby(&hspi1,cfg);
+   uint8_t cfg = STDBY_RC;
+   uint8_t packet_type = SX126X_PKT_TYPE_LORA;
+   uint32_t freqInHertz = 918000000; //918Mhz
+   sx126x_pa_cfg_params_t PA_Config;
+   PA_Config.pa_duty_cycle = 0x02;
+   PA_Config.hp_max = 0x02;
+   PA_Config.device_sel = 0x00;
+   PA_Config.pa_lut = 0x01;
+   sx126x_mod_params_lora_t LoraParams;
+   LoraParams.bw = SX126X_LORA_BW_125;
+   LoraParams.sf = SX126X_LORA_SF7;
+   LoraParams.cr = SX126X_LORA_CR_4_5;
+   LoraParams.ldro = false;
 
+   sx126x_pkt_params_lora_t PacketParams;
+   PacketParams.crc_is_on = true;
+   PacketParams.header_type = SX126X_LORA_PKT_IMPLICIT;
+   PacketParams.preamble_len_in_symb = 8;
+   PacketParams.invert_iq_is_on = true;
+   PacketParams.pld_len_in_bytes = MAX_PACKET_LENGTH;
+   uint8_t timeout_ms = 100;
+
+   //Delay duration = Delay(23:0) *15.625 μs
+   uint32_t tcxo_delay = TCXO_BOOT_TIME_MS / 15625; //magic number comes from 13.3.5 "SetDIO2AsRfSwitchCtrl", page 84 of DS_SX1261-2_v2.1.pdf
+   sx126x_tcxo_ctrl_voltages_t tcxo_voltage = SX126X_TCXO_CTRL_2_7V;
+
+   uint8_t TxPower = 0; //In dbM
+   uint8_t buffer[8] = {0};
+   buffer[0] = 's';
+   buffer[1] = 'h';
+   buffer[2] = 'i';
+   buffer[3] = 't';
+
+   sx126x_set_standby(&hspi1,cfg);
+   sx126x_set_pkt_type(&hspi1, packet_type);
+   sx126x_set_rf_freq(&hspi1, freqInHertz);
+   sx126x_set_pa_cfg(&hspi1, &PA_Config);
+   sx126x_set_dio2_as_rf_sw_ctrl(&hspi1, false); //although we use DIO2 as an rf switch, also need to use 
+   sx126x_set_dio3_as_tcxo_ctrl(&hspi1, tcxo_voltage, tcxo_delay);
+
+   sx126x_set_tx_params(&hspi1, TxPower, SX126X_RAMP_10_US);
+   sx126x_set_buffer_base_address(&hspi1, 0, 128); //give each 128 length in a shared buffer; may be nicer to allow for the full 8byte buffer to be shared between the two?
+   sx126x_write_buffer(&hspi1, 0, buffer, MAX_PACKET_LENGTH);
+   sx126x_set_lora_mod_params(&hspi1, &LoraParams);
+   sx126x_set_lora_pkt_params(&hspi1, &PacketParams);
+   //sx126x_set_dio_irq_params(&hspi1, ); //unclear on what the right way to go is here
+   sx126x_set_lora_sync_word(&hspi1, (uint8_t)0x1424); //value from google, nothing special
+   ReadyForTx(true);
+   sx126x_set_tx(&hspi1, timeout_ms);
+   ReadyForTx(false);
+   //pause 5 seconds
+   HAL_Delay(5000);
+  //TODO irq tx done or timeout & clear tx_done flag
+  //TODO setdio as rf switchg, tcxo,?
 
 /*
  *TODO: create functions for my code to interface with the sx1262:
   - sx126x_hal_reset
   - sx126x_hal_wakeup
-  - sx126x_hal_write
   - sx126x_hal_read
  */
 /*

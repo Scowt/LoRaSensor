@@ -4,6 +4,9 @@
     <ClCompile Include="E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Core\Src\main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Core\Src\sx126x_driver\src\sx126x.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\CMakeLists.txt" />

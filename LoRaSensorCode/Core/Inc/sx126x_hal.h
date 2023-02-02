@@ -132,6 +132,9 @@ sx126x_hal_status_t sx126x_hal_reset( const void* context );
  */
 sx126x_hal_status_t sx126x_hal_wakeup( const void* context );
 
+bool ReadyForTx(bool send);
+bool ReadyForRx(bool receive);
+
 #ifdef __cplusplus
 }
 #endif

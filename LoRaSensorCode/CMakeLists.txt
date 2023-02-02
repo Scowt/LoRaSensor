@@ -9,6 +9,7 @@ include(cmake/st-project.cmake)
 
 # Setup compiler settings
 set(CMAKE_C_STANDARD                11)
+set(CMAKE_GENERATOR UNIX            "Unix Makefiles")
 set(CMAKE_C_STANDARD_REQUIRED       ON)
 set(CMAKE_C_EXTENSIONS              ON)
 set(CMAKE_CXX_STANDARD              20)
@@ -37,6 +38,7 @@ set(EXECUTABLE                      ${CMAKE_PROJECT_NAME})
 #
 set(sources_SRCS
     Core/Src/main.c
+    Core/Src/sx126x_driver/src/sx126x.c
     # Put here your source files, one in each line, relative to CMakeLists.txt file location
 )
 

@@ -1,10 +1,14 @@
 {
   "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
   "cmake.configureOnOpen": true,
-  "stm32-for-vscode.openOCDPath": "C:\\USERS\\USER\\APPDATA\\ROAMING\\CODE\\USER\\GLOBALSTORAGE\\BMD.STM32-FOR-VSCODE\\@XPACK-DEV-TOOLS\\OPENOCD\\0.11.0-5.1\\.CONTENT\\BIN\\OPENOCD.EXE",
-  "cortex-debug.armToolchainPath": "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\bmd.stm32-for-vscode\\@xpack-dev-tools\\arm-none-eabi-gcc\\11.3.1-1.1.2\\.content\\bin",
-  "cortex-debug.openocdPath": "C:\\USERS\\USER\\APPDATA\\ROAMING\\CODE\\USER\\GLOBALSTORAGE\\BMD.STM32-FOR-VSCODE\\@XPACK-DEV-TOOLS\\OPENOCD\\0.11.0-5.1\\.CONTENT\\BIN\\OPENOCD.EXE",
+  "cortex-debug.gdbPath": "C:\\Program Files (x86)\\Arm GNU Toolchain arm-none-eabi\\12.2 rel1\\bin\\arm-none-eabi-gdb.exe",
+  "cortex-debug.armToolchainPath": "C:\\Program Files (x86)\\Arm GNU Toolchain arm-none-eabi\\12.2 rel1\\bin",
+  //"stm32-for-vscode.openOCDPath": "C:\\USERS\\USER\\APPDATA\\ROAMING\\CODE\\USER\\GLOBALSTORAGE\\BMD.STM32-FOR-VSCODE\\@XPACK-DEV-TOOLS\\OPENOCD\\0.11.0-5.1\\.CONTENT\\BIN\\OPENOCD.EXE",
+  //"cortex-debug.armToolchainPath": "c:\\Users\\User\\AppData\\Roaming\\Code\\User\\globalStorage\\bmd.stm32-for-vscode\\@xpack-dev-tools\\arm-none-eabi-gcc\\11.3.1-1.1.2\\.content\\bin",
+  //"cortex-debug.openocdPath": "C:\\USERS\\USER\\APPDATA\\ROAMING\\CODE\\USER\\GLOBALSTORAGE\\BMD.STM32-FOR-VSCODE\\@XPACK-DEV-TOOLS\\OPENOCD\\0.11.0-5.1\\.CONTENT\\BIN\\OPENOCD.EXE",
   "files.associations": {
-    "sx126x.h": "c"
+    "sx126x.h": "c",
+    "main.h": "c",
+    "gpio.h": "c"
   }
 }

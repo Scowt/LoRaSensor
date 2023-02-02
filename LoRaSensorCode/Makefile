@@ -62,7 +62,9 @@ Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_tim.c \
 Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_tim_ex.c \
 Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_uart.c \
 Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_uart_ex.c \
-Core/Src/system_stm32l0xx.c  
+Core/Src/system_stm32l0xx.c \
+Core/Src/sx126x_driver/src/sx126x.c \
+Core/Src/sx126x_driver/src/sx126x_hal.c
 
 # ASM sources
 ASM_SOURCES =  \
@@ -147,7 +149,8 @@ CFLAGS += -MMD -MP -MF"$(@:%.o=%.d)"
 LDSCRIPT = STM32L071KBTx_FLASH.ld
 
 # libraries
-LIBS = -lc -lm -lnosys 
+LIBS = -lc -lm 
+#-lnosys 
 LIBDIR = 
 LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections
 
@@ -188,7 +191,7 @@ $(BUILD_DIR):
 # clean up
 #######################################
 clean:
-	-rm -fR $(BUILD_DIR)
+	del /Q $(BUILD_DIR)
   
 #######################################
 # dependencies
