@@ -73,6 +73,8 @@ void Error_Handler(void);
 #define ANT_SW_GPIO_Port GPIOA
 #define DIO2_Pin GPIO_PIN_5
 #define DIO2_GPIO_Port GPIOB
+#define NRESET_GPIO_PORT GPIOA
+#define NRESET_PIN GPIO_PIN_0
 
 /* USER CODE BEGIN Private defines */
 #define STDBY_RC    0
