@@ -28,7 +28,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#define STM32L071xx
 #include "sx126x.h"
+#include "stddef.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -38,6 +40,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+#define STM32L071xx
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -69,7 +72,7 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	bool RadioBusy=false;
+	bool RadioBusy = false;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -95,14 +98,15 @@ int main(void)
   MX_USART1_UART_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-
+	RadioBusy = true;
   // CS pin should default high
    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, GPIO_PIN_SET);
 
-   RadioBusy = true;
+   
    while (RadioBusy)	//wait for modem to turn on
    {
-	   RadioBusy = HAL_GPIO_ReadPin(BUSY_GPIO_Port, BUSY_Pin);
+	   bool PinStatus = HAL_GPIO_ReadPin(BUSY_GPIO_Port, BUSY_Pin);
+	   RadioBusy = PinStatus;
    }
    uint8_t cfg = STDBY_RC;
    uint8_t packet_type = SX126X_PKT_TYPE_LORA;

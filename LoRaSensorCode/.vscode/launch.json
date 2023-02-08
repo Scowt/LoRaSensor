@@ -2,25 +2,17 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch",
-      "type": "cppdbg",
-      "request": "launch",
       "cwd": "${workspaceFolder}",
-      "program": "${command:cmake.launchTargetPath}",
-      "MIMode": "gdb",
-      //"miDebuggerPath": "${command:vscode-embedded.st.gdb}",
-      "miDebuggerServerAddress": "localhost:3333",
-      //"debugServerPath": "${command:vscode-embedded.st.gdbserver}",
-      "debugServerArgs": "--stm32cubeprogrammer-path ${command:vscode-embedded.st.cubeprogrammer} --swd --port-number 3333",
-      "serverStarted": "Waiting for connection on port .*\\.\\.\\.",
-      "stopAtConnect": true,
-      "postRemoteConnectCommands": [
-        {
-          "text": "load build/debug/build/LoRaSensorCode.elf"
-        }
-      ],
-      "preLaunchTask": "Build",
-      "svdPath": "${command:vscode-embedded.st.svd}/STM32L0x1.svd"
+      "serverpath": "C:/Program Files (x86)/SEGGER/JLink/JLinkGDBServerCL.exe",   //use jlink exe server path
+      "servertype": "jlink",
+      "executable": "./build/LoRaSensorCode.elf",
+      "name": "Debug with JLink",
+      "request": "launch",
+      "type": "cortex-debug",
+      "device": "STM32L071KB",            //MCU used
+      "runToEntryPoint": "main",
+      "showDevDebugOutput": "none",
+      
     },
     {
       "showDevDebugOutput": "parsed",
@@ -56,13 +48,16 @@
       "type": "cortex-debug",             //Debug 
       "executable": "${command:cmake.launchTargetPath}", //or fixed file path: build/project-name.elf
       "request": "launch",                //Use "attach" to connect to target w/o elf download
-      "servertype": "stlink",             //Use stlink setup of cortex-M debug
+      //"servertype": "stlink",             //Use stlink setup of cortex-M debug
+      "servertype": "jlink",             //Use stlink setup of cortex-M debug
+      "serverpath": "C:/Program Files (x86)/SEGGER/JLink/JLinkGDBServerCL.exe",   //use jlink exe server path
       "device": "STM32L071KB",            //MCU used
       "interface": "swd",                 //Interface setup
       "serialNumber": "",                 //Set ST-Link ID if you use multiple at the same time
       "runToEntryPoint": "main",          //Run to main and stop there
-      "svdFile": "STM32L0x1.svd",         //SVD file to see reisters
-      "v1": false,
+      
+      "svdFile": "${command:vscode-embedded.st.svd}/STM32L0x1.svd",         //SVD file to see reisters
+      //"v1": false,
       "showDevDebugOutput": "parsed",
 
       /* Will get automatically detected if STM32CubeIDE is installed to default directory

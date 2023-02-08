@@ -50,10 +50,10 @@ set(include_path_DIRS
     Core/Inc
     Core/Inc/sx126x_driver
     Drivers/CMSIS
+    Drivers/CMSIS/Include
     Drivers/CMSIS/Device/ST/STM32L0xx/Include
     Drivers/STM32L0xx_HAL_Driver/Inc
     Drivers/CMSIS/Core/Include
-
 )
 
 #

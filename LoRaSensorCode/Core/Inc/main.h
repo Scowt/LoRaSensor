@@ -16,6 +16,7 @@
   *
   ******************************************************************************
   */
+#define STM32L071xx
 /* USER CODE END Header */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
@@ -31,6 +32,7 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#define STM32L071xx
 #include "sx126x.h"
 #include <stdbool.h>
 #include <stdint.h>
