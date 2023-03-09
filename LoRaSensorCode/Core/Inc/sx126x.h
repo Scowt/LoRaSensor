@@ -621,8 +621,8 @@ enum sx126x_errors_e
     SX126X_ERRORS_PA_RAMP           = ( 1 << 8 ),
 };
 
-typedef uint16_t sx126x_errors_mask_t;
-
+typedef uint32_t sx126x_errors_mask_t;
+//typedef uint16_t sx126x_errors_mask_t;
 /*
  * -----------------------------------------------------------------------------
  * --- PUBLIC FUNCTIONS PROTOTYPES ---------------------------------------------

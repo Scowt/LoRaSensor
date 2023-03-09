@@ -12,7 +12,7 @@
       "device": "STM32L071KB",            //MCU used
       "runToEntryPoint": "main",
       "showDevDebugOutput": "none",
-      
+      "svdFile": "${command:vscode-embedded.st.svd}/STM32L0x1.svd",         //SVD file to see registers
     },
     {
       "showDevDebugOutput": "parsed",

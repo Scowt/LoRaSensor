@@ -1,0 +1,458 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{3C05916D-48EF-30F2-B53E-F546DD298036}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>LoRaSensorCode</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">LoRaSensorCode.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">LoRaSensorCode</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">LoRaSensorCode.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">LoRaSensorCode</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">LoRaSensorCode.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">LoRaSensorCode</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">LoRaSensorCode.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">LoRaSensorCode</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Core\Inc;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Core\Inc\sx126x_driver;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Include;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Device\ST\STM32L0xx\Include;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\STM32L0xx_HAL_Driver\Inc;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Core\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) -mthumb -mcpu=cortex-m0plus -mfloat-abi=soft -Wextra -Wpedantic -Wno-unused-parameter -Og -g3 -ggdb</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;DEBUG;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;DEBUG;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Core\Inc;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Core\Inc\sx126x_driver;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Include;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Device\ST\STM32L0xx\Include;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\STM32L0xx_HAL_Driver\Inc;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Core\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Core\Inc;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Core\Inc\sx126x_driver;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Include;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Device\ST\STM32L0xx\Include;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\STM32L0xx_HAL_Driver\Inc;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Core\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>		</Message>
+      <Command>setlocal
+Debug\LoRaSensorCode.exe
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+-O ihex "E:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode/Debug/LoRaSensorCode.exe" LoRaSensorCode.hex
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+-O binary "E:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode/Debug/LoRaSensorCode.exe" LoRaSensorCode.bin
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 "-TE:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode/STM32L071KBTX_FLASH.ld" -mthumb -mcpu=cortex-m0plus -mfloat-abi=soft -Wl,-Map=LoRaSensorCode.map --specs=nosys.specs -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -Wl,--print-memory-usage</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>E:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode/Debug/LoRaSensorCode.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode/Debug/LoRaSensorCode.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Core\Inc;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Core\Inc\sx126x_driver;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Include;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Device\ST\STM32L0xx\Include;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\STM32L0xx_HAL_Driver\Inc;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Core\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) -mthumb -mcpu=cortex-m0plus -mfloat-abi=soft -Wextra -Wpedantic -Wno-unused-parameter -Og -g3 -ggdb</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;DEBUG;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;DEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Core\Inc;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Core\Inc\sx126x_driver;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Include;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Device\ST\STM32L0xx\Include;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\STM32L0xx_HAL_Driver\Inc;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Core\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Core\Inc;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Core\Inc\sx126x_driver;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Include;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Device\ST\STM32L0xx\Include;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\STM32L0xx_HAL_Driver\Inc;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Core\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>		</Message>
+      <Command>setlocal
+Release\LoRaSensorCode.exe
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+-O ihex "E:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode/Release/LoRaSensorCode.exe" LoRaSensorCode.hex
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+-O binary "E:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode/Release/LoRaSensorCode.exe" LoRaSensorCode.bin
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 "-TE:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode/STM32L071KBTX_FLASH.ld" -mthumb -mcpu=cortex-m0plus -mfloat-abi=soft -Wl,-Map=LoRaSensorCode.map --specs=nosys.specs -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -Wl,--print-memory-usage</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>E:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode/Release/LoRaSensorCode.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode/Release/LoRaSensorCode.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Core\Inc;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Core\Inc\sx126x_driver;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Include;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Device\ST\STM32L0xx\Include;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\STM32L0xx_HAL_Driver\Inc;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Core\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) -mthumb -mcpu=cortex-m0plus -mfloat-abi=soft -Wextra -Wpedantic -Wno-unused-parameter -Og -g3 -ggdb</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;DEBUG;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;DEBUG;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Core\Inc;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Core\Inc\sx126x_driver;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Include;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Device\ST\STM32L0xx\Include;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\STM32L0xx_HAL_Driver\Inc;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Core\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Core\Inc;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Core\Inc\sx126x_driver;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Include;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Device\ST\STM32L0xx\Include;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\STM32L0xx_HAL_Driver\Inc;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Core\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>		</Message>
+      <Command>setlocal
+MinSizeRel\LoRaSensorCode.exe
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+-O ihex "E:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode/MinSizeRel/LoRaSensorCode.exe" LoRaSensorCode.hex
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+-O binary "E:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode/MinSizeRel/LoRaSensorCode.exe" LoRaSensorCode.bin
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 "-TE:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode/STM32L071KBTX_FLASH.ld" -mthumb -mcpu=cortex-m0plus -mfloat-abi=soft -Wl,-Map=LoRaSensorCode.map --specs=nosys.specs -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -Wl,--print-memory-usage</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>E:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode/MinSizeRel/LoRaSensorCode.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode/MinSizeRel/LoRaSensorCode.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Core\Inc;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Core\Inc\sx126x_driver;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Include;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Device\ST\STM32L0xx\Include;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\STM32L0xx_HAL_Driver\Inc;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Core\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) -mthumb -mcpu=cortex-m0plus -mfloat-abi=soft -Wextra -Wpedantic -Wno-unused-parameter -Og -g3 -ggdb</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;DEBUG;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;DEBUG;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Core\Inc;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Core\Inc\sx126x_driver;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Include;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Device\ST\STM32L0xx\Include;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\STM32L0xx_HAL_Driver\Inc;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Core\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Core\Inc;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Core\Inc\sx126x_driver;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Include;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Device\ST\STM32L0xx\Include;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\STM32L0xx_HAL_Driver\Inc;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Drivers\CMSIS\Core\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>		</Message>
+      <Command>setlocal
+RelWithDebInfo\LoRaSensorCode.exe
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+-O ihex "E:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode/RelWithDebInfo/LoRaSensorCode.exe" LoRaSensorCode.hex
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+-O binary "E:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode/RelWithDebInfo/LoRaSensorCode.exe" LoRaSensorCode.bin
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 "-TE:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode/STM32L071KBTX_FLASH.ld" -mthumb -mcpu=cortex-m0plus -mfloat-abi=soft -Wl,-Map=LoRaSensorCode.map --specs=nosys.specs -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -Wl,--print-memory-usage</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>E:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode/RelWithDebInfo/LoRaSensorCode.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode/RelWithDebInfo/LoRaSensorCode.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule E:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SE:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode" "-BE:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode" --check-stamp-file "E:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeASMInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC-ASM.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\WindowsPaths.cmake;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\CMakeFiles\3.25.1\CMakeASMCompiler.cmake;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\CMakeFiles\3.25.1\CMakeCCompiler.cmake;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\CMakeFiles\3.25.1\CMakeCXXCompiler.cmake;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\CMakeFiles\3.25.1\CMakeRCCompiler.cmake;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\CMakeFiles\3.25.1\CMakeSystem.cmake;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\cmake\st-project.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule E:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SE:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode" "-BE:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode" --check-stamp-file "E:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeASMInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC-ASM.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\WindowsPaths.cmake;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\CMakeFiles\3.25.1\CMakeASMCompiler.cmake;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\CMakeFiles\3.25.1\CMakeCCompiler.cmake;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\CMakeFiles\3.25.1\CMakeCXXCompiler.cmake;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\CMakeFiles\3.25.1\CMakeRCCompiler.cmake;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\CMakeFiles\3.25.1\CMakeSystem.cmake;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\cmake\st-project.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule E:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SE:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode" "-BE:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode" --check-stamp-file "E:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeASMInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC-ASM.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\WindowsPaths.cmake;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\CMakeFiles\3.25.1\CMakeASMCompiler.cmake;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\CMakeFiles\3.25.1\CMakeCCompiler.cmake;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\CMakeFiles\3.25.1\CMakeCXXCompiler.cmake;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\CMakeFiles\3.25.1\CMakeRCCompiler.cmake;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\CMakeFiles\3.25.1\CMakeSystem.cmake;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\cmake\st-project.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule E:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SE:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode" "-BE:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode" --check-stamp-file "E:/Dropbox/Personal/Code/Git Repos/LoRaSensor/LoRaSensorCode/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeASMInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC-ASM.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\WindowsPaths.cmake;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\CMakeFiles\3.25.1\CMakeASMCompiler.cmake;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\CMakeFiles\3.25.1\CMakeCCompiler.cmake;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\CMakeFiles\3.25.1\CMakeCXXCompiler.cmake;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\CMakeFiles\3.25.1\CMakeRCCompiler.cmake;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\CMakeFiles\3.25.1\CMakeSystem.cmake;E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\cmake\st-project.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Core\Src\main.c" />
+    <ClCompile Include="E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\Core\Src\sx126x_driver\src\sx126x.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="E:\Dropbox\Personal\Code\Git Repos\LoRaSensor\LoRaSensorCode\ZERO_CHECK.vcxproj">
+      <Project>{688915D2-8548-3966-816E-2E67060E31D6}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
