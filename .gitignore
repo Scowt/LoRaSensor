@@ -78,3 +78,4 @@ LoRaSensorCode/build/stm32l0xx_it.lst
 LoRaSensorCode/build/system_stm32l0xx.lst
 LoRaSensorCode/build/usart.lst
 LoRaSensorCode/build/release/build/.ninja_log
+LoRaSensorCode/LoRaSensorCode.sln
