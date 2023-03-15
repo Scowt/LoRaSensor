@@ -71,26 +71,22 @@ sx126x_hal_status_t sx126x_hal_write(const void* context, const uint8_t* command
 sx126x_hal_status_t sx126x_hal_read(const void* context, const uint8_t* command, const uint16_t command_length,
                                     uint8_t* data, const uint16_t data_length )
 {
-    //uint32_t context_ptr = context;
     uint8_t spi_tx_buf[SPI_BUFFER_SIZE];
-    //uint8_t temp[SPI_BUFFER_SIZE];
-    //static uint8_t spi_rx_buf[SPI_BUFFER_SIZE];
     uint8_t retval = SX126X_HAL_STATUS_ERROR;
     volatile uint8_t messageReceived = false;
     uint16_t pkt_len =  command_length + data_length;
     HAL_GPIO_WritePin(NS_GPIO_PORT, NS_PIN, GPIO_PIN_RESET);
-    //delay_ns(32); //needs at least 32ns between ns going high and the clk starting
     memset(spi_tx_buf, 0, SPI_BUFFER_SIZE);
     memset(data, 0, data_length);                   //set to 0
     memcpy(spi_tx_buf, command, command_length);   //to ensure only 0s are sent after the command packet
-    //memcpy(&spi_tx_buf + command_length, data, data_length);
+
     messageReceived = HAL_SPI_TransmitReceive(context, spi_tx_buf, data, pkt_len, SPI_TIMEOUT_MS);
     if (messageReceived == HAL_OK)
     {
         memcpy( data, &data[command_length], data_length);
         retval = SX126X_HAL_STATUS_OK;
     }
-    //delay_ns(32);
+
     wait_spi_tx(context);
     HAL_GPIO_WritePin(NS_GPIO_PORT, NS_PIN, GPIO_PIN_SET);
     //clear_spi_rx(context_ptr);

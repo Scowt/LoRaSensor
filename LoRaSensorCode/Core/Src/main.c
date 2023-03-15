@@ -46,7 +46,8 @@
 #define STM32L071xx
 #endif
 
-#define SENDS_LORA 1
+//#define SENDS_LORA 1
+#define RX_BUFFER_OFFSET 128
 
 /* USER CODE END PD */
 
@@ -177,7 +178,7 @@ int main(void)
     ProcessCommands();
     sx126x_set_dio_irq_params(&hspi1, SX126X_IRQ_ALL, SX126X_IRQ_ALL, 0, 0);
     ProcessCommands();
-    sx126x_set_buffer_base_address(&hspi1, 0, 128); // give each 128 length in a shared buffer; may be nicer to allow for the full 8byte buffer to be shared between the two?
+    sx126x_set_buffer_base_address(&hspi1, 0, RX_BUFFER_OFFSET); // give each 128 length in a shared buffer; may be nicer to allow for the full 8byte buffer to be shared between the two?
     ProcessCommands();
     sx126x_set_lora_mod_params(&hspi1, &LoraParams);
     ProcessCommands();
@@ -203,24 +204,28 @@ int main(void)
     ProcessCommands();
     ReadyForTx(false);
     ProcessCommands();
+    HAL_Delay(1000);
 #else
     //check rx_done, buffer
+    ReadyForTx(false);
+    ReadyForRx(true);
+    sx126x_set_rx(&hspi1, 1500); //enter RX_Continuous mode; this should really be done prior to entering this loop.
+    HAL_Delay(1500);
     sx126x_get_irq_status(&hspi1, &irq_status);
     ProcessCommands();
     if (irq_status & SX126X_IRQ_RX_DONE)
     {
       //message received
-      sx126x_read_buffer(&hspi1, 0, buffer, MAX_PACKET_LENGTH);
+      memset(buffer, 0, MAX_PACKET_LENGTH);
+      sx126x_read_buffer(&hspi1, RX_BUFFER_OFFSET, buffer, MAX_PACKET_LENGTH);
       ProcessCommands();
-      sx126x_clear_irq_status(&hspi1, SX126X_IRQ_RX_DONE);
+      sx126x_clear_irq_status(&hspi1, SX126X_IRQ_ALL);
       ProcessCommands();
       sx126x_get_irq_status(&hspi1, &irq_status);
       ProcessCommands();
     }
 //TODO move RX handling code to an interrupt and the set_rx command out of the loop
-    ReadyForTx(false);
-    ReadyForRx(true);
-    sx126x_set_rx(&hspi1,0xFFFFFF); //enter RX_Continuous mode; this should really be done prior to entering this loop.
+
     //code here to check rx buffer
     ProcessCommands();
 #endif
@@ -232,7 +237,7 @@ int main(void)
     sx126x_get_status(&hspi1, &radioStatus);
     // pause half a second
     HAL_GPIO_WritePin(NS_GPIO_PORT, NS_PIN, GPIO_PIN_SET); // set NS high; radio should sleep
-    HAL_Delay(1000);
+    
     ProcessCommands();
     // TODO irq tx done or timeout & clear tx_done flag
 
