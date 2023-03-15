@@ -144,7 +144,7 @@ sx126x_hal_status_t sx126x_hal_wakeup( const void* context );
 void delay_ns(uint16_t nanoseconds);
 bool ReadyForTx(bool send);
 bool ReadyForRx(bool receive);
-void clear_spi_rx(SPI_HandleTypeDef* spi);
+void clear_spi_rx(SPI_HandleTypeDef* hspi);
 void wait_spi_tx(SPI_HandleTypeDef* hspi);
 
 #ifdef __cplusplus

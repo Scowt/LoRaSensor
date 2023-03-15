@@ -33,22 +33,25 @@
 sx126x_hal_status_t sx126x_hal_write(const void* context, const uint8_t* command, const uint16_t command_length,
                                       const uint8_t* data, const uint16_t data_length )
 {
-    static uint8_t spi_tx_buf[SPI_BUFFER_SIZE];
+    //uint32_t context_ptr = context;
+    uint8_t spi_tx_buf[SPI_BUFFER_SIZE];
+    uint8_t spi_rx_buf[SPI_BUFFER_SIZE];
     uint8_t retval = SX126X_HAL_STATUS_ERROR;
     HAL_GPIO_WritePin(NS_GPIO_PORT, NS_PIN, GPIO_PIN_RESET);
     //delay_ns(32); //needs at least 32ns between ns going high and the clk starting
     uint16_t pkt_len = command_length + data_length;
+    memset(spi_rx_buf, 0, SPI_BUFFER_SIZE);                 //set to 0
     memset(spi_tx_buf, 0, pkt_len);
     memcpy(spi_tx_buf, command, command_length);
     memcpy(&spi_tx_buf[command_length], data, data_length);
-	if (HAL_SPI_Transmit(context, spi_tx_buf, pkt_len, SPI_TIMEOUT_MS) == HAL_OK)
+	if (HAL_SPI_TransmitReceive(context, spi_tx_buf, spi_rx_buf, pkt_len, SPI_TIMEOUT_MS) == HAL_OK)
     {
         retval = SX126X_HAL_STATUS_OK;
     }
     delay_ns(32);
     wait_spi_tx(context);
     HAL_GPIO_WritePin(NS_GPIO_PORT, NS_PIN, GPIO_PIN_SET);
-    clear_spi_rx(context);
+    //clear_spi_rx(context_ptr);
     return retval;
 }
 
@@ -66,9 +69,11 @@ sx126x_hal_status_t sx126x_hal_write(const void* context, const uint8_t* command
  * @returns Operation status
  */
 sx126x_hal_status_t sx126x_hal_read(const void* context, const uint8_t* command, const uint16_t command_length,
-                                     uint8_t* data, const uint16_t data_length )
+                                    uint8_t* data, const uint16_t data_length )
 {
-    static uint8_t spi_tx_buf[SPI_BUFFER_SIZE];
+    //uint32_t context_ptr = context;
+    uint8_t spi_tx_buf[SPI_BUFFER_SIZE];
+    //uint8_t temp[SPI_BUFFER_SIZE];
     //static uint8_t spi_rx_buf[SPI_BUFFER_SIZE];
     uint8_t retval = SX126X_HAL_STATUS_ERROR;
     volatile uint8_t messageReceived = false;
@@ -81,11 +86,14 @@ sx126x_hal_status_t sx126x_hal_read(const void* context, const uint8_t* command,
     //memcpy(&spi_tx_buf + command_length, data, data_length);
     messageReceived = HAL_SPI_TransmitReceive(context, spi_tx_buf, data, pkt_len, SPI_TIMEOUT_MS);
     if (messageReceived == HAL_OK)
+    {
+        memcpy( data, &data[command_length], data_length);
         retval = SX126X_HAL_STATUS_OK;
+    }
     //delay_ns(32);
     wait_spi_tx(context);
     HAL_GPIO_WritePin(NS_GPIO_PORT, NS_PIN, GPIO_PIN_SET);
-    clear_spi_rx(context);
+    //clear_spi_rx(context_ptr);
     return retval;
 }
 
@@ -105,6 +113,7 @@ sx126x_hal_status_t sx126x_hal_reset( const void* context )
     HAL_Delay(1);
     HAL_GPIO_WritePin(NRESET_GPIO_PORT, NRESET_PIN, GPIO_PIN_RESET);
     HAL_Delay(1);
+    return SX126X_HAL_STATUS_OK;
 }
 
 /**
@@ -119,6 +128,7 @@ sx126x_hal_status_t sx126x_hal_reset( const void* context )
 sx126x_hal_status_t sx126x_hal_wakeup( const void* context )
 {
     HAL_GPIO_WritePin(NS_GPIO_PORT, NS_PIN, GPIO_PIN_RESET);
+    return SX126X_HAL_STATUS_OK;
 }
 
 
@@ -183,7 +193,7 @@ void delay_ns(uint16_t nanoseconds) //This function will pause for a minimum of 
             asm("NOP");
     }
 }
-
+/*
 void clear_spi_rx(SPI_HandleTypeDef* hspi)
 {
     volatile uint32_t data_to_clear = 0;
@@ -196,10 +206,11 @@ void clear_spi_rx(SPI_HandleTypeDef* hspi)
     asm("NOP");
     //hspi->Instance->DR = 0;
 }
+*/
 
 void wait_spi_tx(SPI_HandleTypeDef* hspi)
 {
-    while (!__HAL_SPI_GET_FLAG(hspi, SPI_FLAG_TXE))
-    ;
-    asm("NOP");
+    uint8_t flagstatus = 0;
+    while (!flagstatus)
+        flagstatus = __HAL_SPI_GET_FLAG(hspi, SPI_FLAG_TXE);
 }

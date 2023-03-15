@@ -46,6 +46,8 @@
 #define STM32L071xx
 #endif
 
+#define SENDS_LORA 1
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -109,20 +111,29 @@ int main(void)
 
   // CS pin should default high
   HAL_GPIO_WritePin(NS_GPIO_PORT, NS_PIN, GPIO_PIN_RESET);
+  ReadyForTx(false);
+  ReadyForRx(false);
   while (1)
   {
-    clear_spi_rx(&hspi1);
+    //clear_spi_rx(&hspi1);
     //volatile uint8_t msgrx = 0;
-    volatile sx126x_chip_status_t radioStatus;
+    sx126x_chip_status_t radioStatus;
     radioStatus.chip_mode = SX126X_CHIP_MODE_UNUSED;
     radioStatus.cmd_status = SX126X_CMD_STATUS_RESERVED;
-    volatile sx126x_errors_mask_t errorMask = 0;
-    volatile sx126x_irq_mask_t irq_status = 0;
+    sx126x_errors_mask_t errorMask = 0;
+    sx126x_irq_mask_t irq_status = 0;
     
-    // CS pin should default high
     HAL_GPIO_WritePin(NS_GPIO_PORT, NS_PIN, GPIO_PIN_SET);
     ProcessCommands();
-    sx126x_clear_device_errors(&hspi1);
+    errorMask = 0;
+    sx126x_get_device_errors(&hspi1, &errorMask);
+    errorMask = errorMask & 0x17F; //removes all the bits that are RFU
+    if (errorMask)
+    {
+      sx126x_clear_device_errors(&hspi1);
+      errorMask = 0;
+    }
+    ProcessCommands();
     uint8_t cfg = STDBY_RC;
     uint8_t packet_type = SX126X_PKT_TYPE_LORA;
     uint32_t freqInHertz = 918000000; // 918Mhz
@@ -136,7 +147,6 @@ int main(void)
     LoraParams.sf = SX126X_LORA_SF7;
     LoraParams.cr = SX126X_LORA_CR_4_5;
     LoraParams.ldro = false;
-
     sx126x_pkt_params_lora_t PacketParams;
     PacketParams.crc_is_on = true;
     PacketParams.header_type = SX126X_LORA_PKT_IMPLICIT;
@@ -149,17 +159,8 @@ int main(void)
     uint32_t tcxo_delay = TCXO_BOOT_TIME_MS * 1000000 / 15625; // magic number comes from 13.3.5 "SetDIO2AsRfSwitchCtrl", page 84 of DS_SX1261-2_v2.1.pdf
     sx126x_tcxo_ctrl_voltages_t tcxo_voltage = SX126X_TCXO_CTRL_1_8V;
 
-    uint8_t TxPower = 5; // In dbM
-    uint8_t buffer[MAX_PACKET_LENGTH] = {0};
-    buffer[0] = 's';
-    buffer[1] = 'h';
-    buffer[2] = 'i';
-    buffer[3] = 't';
-    buffer[4] = 's';
-    buffer[5] = 'h';
-    buffer[6] = 'i';
-    buffer[7] = 't';
-
+    uint8_t TxPower = 0; // In dbM
+    uint8_t buffer[MAX_PACKET_LENGTH] = { 0 };
     sx126x_set_standby(&hspi1, cfg);
     ProcessCommands();
     sx126x_set_pkt_type(&hspi1, packet_type);
@@ -178,34 +179,60 @@ int main(void)
     ProcessCommands();
     sx126x_set_buffer_base_address(&hspi1, 0, 128); // give each 128 length in a shared buffer; may be nicer to allow for the full 8byte buffer to be shared between the two?
     ProcessCommands();
-    sx126x_write_buffer(&hspi1, 0, buffer, MAX_PACKET_LENGTH);
-    ProcessCommands();
     sx126x_set_lora_mod_params(&hspi1, &LoraParams);
     ProcessCommands();
     sx126x_set_lora_pkt_params(&hspi1, &PacketParams);
     ProcessCommands();
-    // sx126x_set_dio_irq_params(&hspi1, ); //unclear on what the right way to go is here
-    sx126x_set_lora_sync_word(&hspi1, (uint8_t)0x1424); // value from google, nothing special
-    ProcessCommands();
-    sx126x_clear_device_errors(&hspi1);
+    sx126x_set_lora_sync_word(&hspi1, 0x12); // 0x12 equates to 1424 (Set to 0x1424 for Private Network, Table 12-1 )
     ProcessCommands();
     //1000 0001 0111 0100
+#ifdef SENDS_LORA
+    buffer[0] = 's';
+    buffer[1] = 'h';
+    buffer[2] = 'i';
+    buffer[3] = 't';
+    buffer[4] = 's';
+    buffer[5] = 'h';
+    buffer[6] = 'i';
+    buffer[7] = 't';
+    sx126x_write_buffer(&hspi1, 0, buffer, MAX_PACKET_LENGTH);
+    ProcessCommands();
     ReadyForTx(true);
     ProcessCommands();
     sx126x_set_tx(&hspi1, timeout_ms);
     ProcessCommands();
     ReadyForTx(false);
     ProcessCommands();
+#else
+    //check rx_done, buffer
+    sx126x_get_irq_status(&hspi1, &irq_status);
+    ProcessCommands();
+    if (irq_status & SX126X_IRQ_RX_DONE)
+    {
+      //message received
+      sx126x_read_buffer(&hspi1, 0, buffer, MAX_PACKET_LENGTH);
+      ProcessCommands();
+      sx126x_clear_irq_status(&hspi1, SX126X_IRQ_RX_DONE);
+      ProcessCommands();
+      sx126x_get_irq_status(&hspi1, &irq_status);
+      ProcessCommands();
+    }
+//TODO move RX handling code to an interrupt and the set_rx command out of the loop
+    ReadyForTx(false);
+    ReadyForRx(true);
+    sx126x_set_rx(&hspi1,0xFFFFFF); //enter RX_Continuous mode; this should really be done prior to entering this loop.
+    //code here to check rx buffer
+    ProcessCommands();
+#endif
     sx126x_get_and_clear_irq_status(&hspi1, &irq_status);
     ProcessCommands();
-    errorMask = 0;
     sx126x_get_device_errors(&hspi1, &errorMask);
     errorMask = errorMask & 0x17F; //removes all the bits that are RFU
     ProcessCommands();
     sx126x_get_status(&hspi1, &radioStatus);
     // pause half a second
     HAL_GPIO_WritePin(NS_GPIO_PORT, NS_PIN, GPIO_PIN_SET); // set NS high; radio should sleep
-    HAL_Delay(250);
+    HAL_Delay(1000);
     ProcessCommands();
     // TODO irq tx done or timeout & clear tx_done flag
 
