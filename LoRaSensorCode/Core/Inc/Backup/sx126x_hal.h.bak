@@ -46,6 +46,8 @@ extern "C" {
 
 #include <stdint.h>
 #include <stdbool.h>
+#include <string.h>
+#include "spi.h"
 
 /*
  * -----------------------------------------------------------------------------
@@ -61,6 +63,13 @@ extern "C" {
  * @brief Write this to SPI bus while reading data, or as a dummy/placeholder
  */
 #define SX126X_NOP ( 0x00 )
+
+/**
+ * @brief Arbitrary size
+ */
+#define SPI_BUFFER_SIZE 1024
+
+#define SPI_TIMEOUT_MS  1000
 
 /*
  * -----------------------------------------------------------------------------
@@ -132,8 +141,11 @@ sx126x_hal_status_t sx126x_hal_reset( const void* context );
  */
 sx126x_hal_status_t sx126x_hal_wakeup( const void* context );
 
+void delay_ns(uint16_t nanoseconds);
 bool ReadyForTx(bool send);
 bool ReadyForRx(bool receive);
+void clear_spi_rx(SPI_HandleTypeDef* hspi);
+void wait_spi_tx(SPI_HandleTypeDef* hspi);
 
 #ifdef __cplusplus
 }

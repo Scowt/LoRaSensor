@@ -16,7 +16,9 @@
   *
   ******************************************************************************
   */
+#ifndef STM32L071xx
 #define STM32L071xx
+#endif
 /* USER CODE END Header */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
@@ -32,12 +34,13 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#ifndef STM32L071xx
 #define STM32L071xx
+#endif
 #include "sx126x.h"
 #include <stdbool.h>
 #include <stdint.h>
 #include "sx126x.h"
-#define STM32L071xx
 #include "stm32l0xx_hal.h"
 #include "sx126x_hal.h"
 /* USER CODE END Includes */
@@ -61,7 +64,7 @@ extern "C" {
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
-
+void ProcessCommands(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
@@ -73,13 +76,21 @@ void Error_Handler(void);
 #define ANT_SW_GPIO_Port GPIOA
 #define DIO2_Pin GPIO_PIN_5
 #define DIO2_GPIO_Port GPIOB
-
+#define NRESET_GPIO_PORT GPIOA
+#define NRESET_PIN GPIO_PIN_0
+#define NS_GPIO_PORT GPIOA
+#define NS_PIN GPIO_PIN_4
+/*
+Not sure where this definition came from?
+#define NS_GPIO_PORT GPIOB
+#define NS_PIN GPIO_PIN_6
+*/
 /* USER CODE BEGIN Private defines */
 #define STDBY_RC    0
 #define STDBY_XOSC  1
 
-#define MAX_PACKET_LENGTH  4
-#define TCXO_BOOT_TIME_MS 2 //from Table 5 of the TG-5006CJ-47L 32.000000 MHz_X1G0041310042 SEIKO EPSON  datasheet
+#define MAX_PACKET_LENGTH  16
+#define TCXO_BOOT_TIME_MS 4 //from Table 5 of the TG-5006CJ-47L 32.000000 MHz_X1G0041310042 SEIKO EPSON  datasheet
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
