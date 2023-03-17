@@ -37,7 +37,7 @@ sx126x_hal_status_t sx126x_hal_write(const void* context, const uint8_t* command
     uint8_t spi_tx_buf[SPI_BUFFER_SIZE];
     uint8_t spi_rx_buf[SPI_BUFFER_SIZE];
     uint8_t retval = SX126X_HAL_STATUS_ERROR;
-    HAL_GPIO_WritePin(NS_GPIO_PORT, NS_PIN, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(NS_GPIO_Port, NS_Pin, GPIO_PIN_RESET);
     //delay_ns(32); //needs at least 32ns between ns going high and the clk starting
     uint16_t pkt_len = command_length + data_length;
     memset(spi_rx_buf, 0, SPI_BUFFER_SIZE);                 //set to 0
@@ -50,7 +50,7 @@ sx126x_hal_status_t sx126x_hal_write(const void* context, const uint8_t* command
     }
     delay_ns(32);
     wait_spi_tx(context);
-    HAL_GPIO_WritePin(NS_GPIO_PORT, NS_PIN, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(NS_GPIO_Port, NS_Pin, GPIO_PIN_SET);
     //clear_spi_rx(context_ptr);
     return retval;
 }
@@ -75,7 +75,7 @@ sx126x_hal_status_t sx126x_hal_read(const void* context, const uint8_t* command,
     uint8_t retval = SX126X_HAL_STATUS_ERROR;
     volatile uint8_t messageReceived = false;
     uint16_t pkt_len =  command_length + data_length;
-    HAL_GPIO_WritePin(NS_GPIO_PORT, NS_PIN, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(NS_GPIO_Port, NS_Pin, GPIO_PIN_RESET);
     memset(spi_tx_buf, 0, SPI_BUFFER_SIZE);
     memset(data, 0, data_length);                   //set to 0
     memcpy(spi_tx_buf, command, command_length);   //to ensure only 0s are sent after the command packet
@@ -88,7 +88,7 @@ sx126x_hal_status_t sx126x_hal_read(const void* context, const uint8_t* command,
     }
 
     wait_spi_tx(context);
-    HAL_GPIO_WritePin(NS_GPIO_PORT, NS_PIN, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(NS_GPIO_Port, NS_Pin, GPIO_PIN_SET);
     //clear_spi_rx(context_ptr);
     return retval;
 }
@@ -105,9 +105,9 @@ sx126x_hal_status_t sx126x_hal_read(const void* context, const uint8_t* command,
  */
 sx126x_hal_status_t sx126x_hal_reset( const void* context )
 {
-    HAL_GPIO_WritePin(NRESET_GPIO_PORT, NRESET_PIN, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(NRESET_GPIO_Port, NRESET_Pin, GPIO_PIN_SET);
     HAL_Delay(1);
-    HAL_GPIO_WritePin(NRESET_GPIO_PORT, NRESET_PIN, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(NRESET_GPIO_Port, NRESET_Pin, GPIO_PIN_RESET);
     HAL_Delay(1);
     return SX126X_HAL_STATUS_OK;
 }
@@ -123,7 +123,7 @@ sx126x_hal_status_t sx126x_hal_reset( const void* context )
  */
 sx126x_hal_status_t sx126x_hal_wakeup( const void* context )
 {
-    HAL_GPIO_WritePin(NS_GPIO_PORT, NS_PIN, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(NS_GPIO_Port, NS_Pin, GPIO_PIN_RESET);
     return SX126X_HAL_STATUS_OK;
 }
 

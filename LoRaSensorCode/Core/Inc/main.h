@@ -34,9 +34,7 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#ifndef STM32L071xx
-#define STM32L071xx
-#endif
+
 #include "sx126x.h"
 #include <stdbool.h>
 #include <stdint.h>
@@ -68,6 +66,10 @@ void ProcessCommands(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define NRESET_Pin GPIO_PIN_0
+#define NRESET_GPIO_Port GPIOA
+#define NS_Pin GPIO_PIN_4
+#define NS_GPIO_Port GPIOA
 #define BUSY_Pin GPIO_PIN_0
 #define BUSY_GPIO_Port GPIOB
 #define DIO1_Pin GPIO_PIN_1
@@ -76,15 +78,7 @@ void ProcessCommands(void);
 #define ANT_SW_GPIO_Port GPIOA
 #define DIO2_Pin GPIO_PIN_5
 #define DIO2_GPIO_Port GPIOB
-#define NRESET_GPIO_PORT GPIOA
-#define NRESET_PIN GPIO_PIN_0
-#define NS_GPIO_PORT GPIOA
-#define NS_PIN GPIO_PIN_4
-/*
-Not sure where this definition came from?
-#define NS_GPIO_PORT GPIOB
-#define NS_PIN GPIO_PIN_6
-*/
+
 /* USER CODE BEGIN Private defines */
 #define STDBY_RC    0
 #define STDBY_XOSC  1

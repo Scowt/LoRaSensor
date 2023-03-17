@@ -8,7 +8,8 @@
     "sx126x.h": "c",
     "main.h": "c",
     "gpio.h": "c",
-    "stm32l0xx_hal.h": "c"
+    "stm32l0xx_hal.h": "c",
+    "adc.h": "c"
   },
   "cortex-debug.variableUseNaturalFormat": true,
   "makefile.launchConfigurations": [

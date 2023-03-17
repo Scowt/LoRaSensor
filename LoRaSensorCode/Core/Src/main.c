@@ -108,12 +108,12 @@ int main(void)
   MX_ADC_Init();
   /* USER CODE BEGIN 2 */
   //Ensure radio starts up with a full reset
-  HAL_GPIO_WritePin(NRESET_GPIO_PORT, NRESET_PIN, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(NRESET_GPIO_Port, NRESET_Pin, GPIO_PIN_RESET);
   HAL_Delay(150);
-  HAL_GPIO_WritePin(NRESET_GPIO_PORT, NRESET_PIN, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(NRESET_GPIO_Port, NRESET_Pin, GPIO_PIN_SET);
 
   // CS pin should default high
-  HAL_GPIO_WritePin(NS_GPIO_PORT, NS_PIN, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(NS_GPIO_Port, NS_Pin, GPIO_PIN_RESET);
   ReadyForTx(false);
   ReadyForRx(false);
   while (1)
@@ -126,7 +126,7 @@ int main(void)
     sx126x_errors_mask_t errorMask = 0;
     sx126x_irq_mask_t irq_status = 0;
     
-    HAL_GPIO_WritePin(NS_GPIO_PORT, NS_PIN, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(NS_GPIO_Port, NS_Pin, GPIO_PIN_SET);
     ProcessCommands();
     errorMask = 0;
     sx126x_get_device_errors(&hspi1, &errorMask);
@@ -156,7 +156,7 @@ int main(void)
     PacketParams.preamble_len_in_symb = 8;
     PacketParams.invert_iq_is_on = false;
     PacketParams.pld_len_in_bytes = MAX_PACKET_LENGTH;
-    uint8_t timeout_ms = 100;
+
 
     // Delay duration = Delay(23:0) *15.625 μs
     uint32_t tcxo_delay = TCXO_BOOT_TIME_MS * 1000000 / 15625; // magic number comes from 13.3.5 "SetDIO2AsRfSwitchCtrl", page 84 of DS_SX1261-2_v2.1.pdf
@@ -190,6 +190,7 @@ int main(void)
     ProcessCommands();
     //1000 0001 0111 0100
 #ifdef SENDS_LORA
+    uint8_t timeout_ms = 100;
     buffer[0] = 's';
     buffer[1] = 'h';
     buffer[2] = 'i';
@@ -238,7 +239,7 @@ int main(void)
     ProcessCommands();
     sx126x_get_status(&hspi1, &radioStatus);
     // pause half a second
-    HAL_GPIO_WritePin(NS_GPIO_PORT, NS_PIN, GPIO_PIN_SET); // set NS high; radio should sleep
+    HAL_GPIO_WritePin(NS_GPIO_Port, NS_Pin, GPIO_PIN_SET); // set NS high; radio should sleep
     
     ProcessCommands();
     // TODO irq tx done or timeout & clear tx_done flag
@@ -313,7 +314,8 @@ void SystemClock_Config(void)
 
   /** Initializes the CPU, AHB and APB buses clocks
   */
-  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_MSI;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
@@ -323,7 +325,8 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USART1 | RCC_PERIPHCLK_USART2 | RCC_PERIPHCLK_I2C1;
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USART1|RCC_PERIPHCLK_USART2
+                              |RCC_PERIPHCLK_I2C1;
   PeriphClkInit.Usart1ClockSelection = RCC_USART1CLKSOURCE_PCLK2;
   PeriphClkInit.Usart2ClockSelection = RCC_USART2CLKSOURCE_PCLK1;
   PeriphClkInit.I2c1ClockSelection = RCC_I2C1CLKSOURCE_PCLK1;
@@ -361,7 +364,7 @@ void Error_Handler(void)
   /* USER CODE END Error_Handler_Debug */
 }
 
-#ifdef USE_FULL_ASSERT
+#ifdef  USE_FULL_ASSERT
 /**
   * @brief  Reports the name of the source file and the source line number
   *         where the assert_param error has occurred.
